@@ -24,7 +24,7 @@ using rcss_module
 #################################################
 mp=Dict{String, Array{Real}}() # model parameters
 ################################################
-mp["battery_capacity"]=[100.0]
+mp["battery_capacity"]=[400.0]
 mp["nbattery_levels"]=[21]
 mp["step"]=[mp["battery_capacity"][1]/(mp["nbattery_levels"][1]-1)]
 mp["std"]=[15.0]
