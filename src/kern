@@ -1,5 +1,5 @@
-function Kern(distances::Vector{Float64},X)
-    ex = X.mp["ex"][1]
+function kern(distances::Vector{Float64},x)
+    ex = x.mp["ex"][1]
     minndx = argmin(distances)
     minval = distances[minndx]
     result = zero(distances)
