@@ -1,13 +1,13 @@
-function SimulatePath(Initpoint::Vector{Float64},Pathlength::Int64,Pathnumber::Int64,disturb::Array{Float64,3},Weight::Vector{Float64})
-    distribution = Categorical(Weight)
+function simulatepath(initpoint::Vector{Float64},pathlength::Int64,pathnumber::Int64,disturb::Array{Float64,3},weight::Vector{Float64})
+    distribution = Categorical(weight)
     #dnum=size(weight)[1]
-    path = zero(Matrix{Float64}(undef, length(Initpoint), Pathlength * Pathnumber))
-    path_labels = zero(Matrix{Int64}(undef, 1, Pathlength * Pathnumber))
+    path = zero(Matrix{Float64}(undef,length(initpoint),pathlength * pathnumber))
+    path_labels = zero(Matrix{Int64}(undef,1, pathlength * pathnumber))
     k = 1::Int64
-    for l in 1:Pathnumber
-        point = Initpoint
+    for l in 1:pathnumber
+        point = initpoint
         label = 0
-        for i in 1: Pathlength
+        for i in 1: pathlength
             path[:, k] = point
             path_labels[:, k] .= label
             k = k+1
@@ -18,6 +18,6 @@ function SimulatePath(Initpoint::Vector{Float64},Pathlength::Int64,Pathnumber::I
     return(path, path_labels)
 end
 
-function SimulatePath(Initpoint::Vector{Float64},Pathlength::Int64,Pathnumber::Int64,X::rcss)
-    return(SimulatePath(Initpoint,Pathlength,Pathnumber,X.disturb,X.Weight))
+function simulatepath(initpoint::Vector{Float64},pathlength::Int64,pathnumber::Int64,x::rcss)
+    return(simulatepath(initpoint,pathlength,pathnumber,x.disturb,x.weight))
 end
