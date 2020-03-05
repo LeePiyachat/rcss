@@ -127,10 +127,10 @@ We summarize all the model information into an object
 global  x = rcss(gridsize,initpoint,pathlength,pathnumber,w,r_index,modif,weight,
 			control,reward,scrap,mp);
 ```
-Perform the Bellman recursion. Note that in this version of rcss, the user can set the number of nearest neighbors.The index_be can be 0, negative value, and positive value. 
-    1) If index_be = 0, the traditional method is used. Traditional method finds the maximization of all tangents
-    2) If index_be = positive value (1-50), the fast method is used.
-    3) If index_be = negative value, the slow method method is used.
+Perform the Bellman recursion. Note that in this version of rcss, the user can set the number of nearest neighbors.The index_be can be 0, negative value, and positive value.
+1)	If index_be = 0, the traditional method is used. Traditional method finds the maximization of all tangents
+2)	If index_be = positive value (1-50), the fast method is used.
+3)	If index_be = negative value, the slow method method is used.
 ```
 value, evalue = Bellman(tnum, x,index_be, scalar)
 ```
@@ -165,15 +165,15 @@ for p in 1:x.pnum
 end
 ```
 The above gives us: 
-For the fast method with 2 nearest neighbors (computational time approximately 1.35 mins)
--484.7975 (0.2963) for lower bound
--484.7973 (0.2963) for upper bound
-For the slow method with 2 nearest neighbors (computational time approximately 33.35 mins)
--484.7939 (0.2961) for lower bound
--484.7937 (0.2960) for upper bound
-For the traditional method (computational time approximately 37 mins)
--484.7937 (0.2964) for lower bound
--484.7934 (0.2963) for upper bound
+1)	For the fast method with 2 nearest neighbors (computational time approximately 1.35 mins)
+* -484.7975 (0.2963) for lower bound
+* -484.7973 (0.2963) for upper bound
+2)	For the slow method with 2 nearest neighbors (computational time approximately 33.35 mins)
+* -484.7939 (0.2961) for lower bound
+* -484.7937 (0.2960) for upper bound
+3)	For the traditional method (computational time approximately 37 mins)
+* -484.7937 (0.2964) for lower bound
+* -484.7934 (0.2963) for upper bound
 
 ## Conclusion
 Tighter bounds can be acheived by either improving the value function approximations by using
