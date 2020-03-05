@@ -1,0 +1,7 @@
+function indenlarge(subgradients::Matrix{Float64},x::rcss)
+    result = Vector{Int64}(undef,x.gnum)
+    for i in 1:x.gnum
+        result[i]=argmax(subgradients * x.grid[i,:])
+    end
+    return(result)
+end
